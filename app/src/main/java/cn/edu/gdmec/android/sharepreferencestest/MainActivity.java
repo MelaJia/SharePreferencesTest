@@ -6,15 +6,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button saveData= (Button) findViewById(R.id.save_data);
+        Button loginOut= (Button) findViewById(R.id.btn_loginout);
         saveData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -38,6 +40,13 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("MainActivity","nn is "+married);
 
 
+            }
+        });
+        loginOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent("com.example.sharepreferencestest.FORCE_OFFLINE");
+                sendBroadcast(intent);
             }
         });
     }

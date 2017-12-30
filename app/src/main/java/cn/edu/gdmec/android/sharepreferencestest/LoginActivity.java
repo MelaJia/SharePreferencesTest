@@ -46,7 +46,7 @@ public class LoginActivity extends BaseActivity {
                     if (remenmberPas.isChecked()){
                         editor.putBoolean("remember_pas",true);
                         editor.putString("userName",userName);
-                        editor.putString("userName",password);
+                        editor.putString("password",password);
                     }else {
                         editor.clear();
                     }
