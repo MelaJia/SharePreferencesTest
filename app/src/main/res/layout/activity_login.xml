@@ -13,6 +13,7 @@
             android:layout_gravity="center_vertical"
             android:text="用户名"/>
         <EditText
+            android:hint="请输入用户名"
             android:id="@+id/et_login"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -29,8 +30,11 @@
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:layout_gravity="center_vertical"
-            android:text="用户名"/>
+            android:text="用户名"
+          />
         <EditText
+            android:hint="请输入密码"
+            android:inputType="textPassword"
             android:id="@+id/et_password"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

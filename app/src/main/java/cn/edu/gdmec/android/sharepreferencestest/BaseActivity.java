@@ -51,17 +51,25 @@ public class BaseActivity extends AppCompatActivity{
         @Override
         public void onReceive(final Context context, Intent intent) {
             AlertDialog.Builder builder=new AlertDialog.Builder(context);
-            builder.setTitle("错误");
-            builder.setMessage("CC");
-            builder.setCancelable(false);
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            builder.setTitle("提示");
+            builder.setMessage("退出？");
+       //     builder.setCancelable(false);
+            builder.setNegativeButton("ok", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
                     ActivityCollector.finishAll();
-                    Intent intent=new Intent(context,LoginActivity.class);
-                    context.startActivity(intent);
+//                    Intent intent=new Intent(context,LoginActivity.class);
+//                    context.startActivity(intent);
                 }
             });
+//            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                @Override
+//                public void onClick(DialogInterface dialogInterface, int i) {
+//                    ActivityCollector.finishAll();
+//                    Intent intent=new Intent(context,LoginActivity.class);
+//                    context.startActivity(intent);
+//                }
+//            });
             builder.show();
         }
     }
