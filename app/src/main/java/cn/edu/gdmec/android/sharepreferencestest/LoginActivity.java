@@ -12,6 +12,11 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
+/*
+*将文字存到SharedPreferences中
+*
+*/
 public class LoginActivity extends BaseActivity {
 
     private EditText et_login;
