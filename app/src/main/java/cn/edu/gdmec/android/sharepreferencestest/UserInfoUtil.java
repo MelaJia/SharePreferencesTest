@@ -1,6 +1,7 @@
 package cn.edu.gdmec.android.sharepreferencestest;
 
 import android.content.Context;
+import android.os.Environment;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -22,6 +23,7 @@ public class UserInfoUtil {
          //   String path="/data/data/cn.edu.gdmec.android.sharepreferencestest/";
             //通过Context对象获取私有目录路径
             String path=context.getFilesDir().getPath();
+            //  String path= Environment.getExte.rnalStorageDirectory().getPath();
             File file=new File(path,"a.txt");
             FileOutputStream fos= new FileOutputStream(file,true);
             fos.write(userInfo.getBytes());

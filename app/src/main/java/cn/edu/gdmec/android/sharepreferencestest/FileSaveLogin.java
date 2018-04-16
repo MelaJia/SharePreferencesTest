@@ -3,13 +3,16 @@ package cn.edu.gdmec.android.sharepreferencestest;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Environment;
 import android.text.TextUtils;
+import android.text.format.Formatter;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.File;
 import java.util.Map;
 /**
  * 将用户名和密码保存在私有目录中
@@ -63,6 +66,25 @@ public class FileSaveLogin extends Activity implements View.OnClickListener {
                 String userInfo=userName+"##"+password;
                 //2、判断是否选择保存密码
                 if (isSave){
+                    //判断sd卡是否存在
+//                    if (!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
+//                        Toast.makeText(mContext, "sd卡不存在或者没有挂载", Toast.LENGTH_SHORT).show();
+//                        return;
+//                    }
+                    //得到sd卡目录作为一个文件对象
+//                    File scard_filedir=Environment.getExternalStorageDirectory();
+//                    //获取sd卡剩余空间
+//                    long usableSpace=scard_filedir.getUsableSpace();
+//                    //获取sd卡总空间
+//                    long totalSpace=scard_filedir.getTotalSpace();
+//                    //将sd卡总空间转换为多少兆
+//                    String totalSpace_str=Formatter.formatFileSize(mContext,totalSpace);
+//                    String usableSpace_str=Formatter.formatFileSize(mContext,usableSpace);
+//                    if (usableSpace<200*1020*1024){//判断剩余空间是否小于200M
+//                        Toast.makeText(mContext, "scard卡剩余空间不足,无法满足下载，\n总空间为"+totalSpace_str+";剩余空间为"+usableSpace_str, Toast.LENGTH_SHORT).show();
+//
+//                    }
+
                     boolean result=UserInfoUtil.saveUserInfo(mContext,userInfo);
                     if (result){
                         Toast.makeText(this, "已保存好用户名和密码，记住密码", Toast.LENGTH_SHORT).show();
