@@ -24,12 +24,14 @@ public class UserInfoUtil {
             //通过Context对象获取私有目录路径
             String path=context.getFilesDir().getPath();
             //  String path= Environment.getExte.rnalStorageDirectory().getPath();
-            File file=new File(path,"a.txt");
-            FileOutputStream fos= new FileOutputStream(file,true);
-            fos.write(userInfo.getBytes());
-
-
-            fos.close();
+            FileOutputStream  fileOutputStream= context.openFileOutput("a.txt",Context.MODE_PRIVATE);
+            fileOutputStream.write(userInfo.getBytes());
+            fileOutputStream.close();
+//                String path=context.getFilesDir().getPath();
+//            File file=new File(path,"a.txt");
+//            FileOutputStream fos= new FileOutputStream(file,true);
+//            fos.write(userInfo.getBytes());
+//            fos.close();
 
         }catch (Exception e){
             e.printStackTrace();
@@ -41,15 +43,17 @@ public class UserInfoUtil {
     public static Map<String ,String> getUserInfo(Context context){
         try{
             String path=context.getFilesDir().getPath();
-            File file=new File(path,"a.txt");
-            FileInputStream fis= new FileInputStream(file);
-            BufferedReader br=new BufferedReader(new InputStreamReader(fis));
+            FileInputStream  fileInputStream= context.openFileInput("a.txt");
+//            File file=new File(path,"a.txt");
+//            FileInputStream fis= new FileInputStream(file);
+            BufferedReader br=new BufferedReader(new InputStreamReader(fileInputStream));
             String[] info=br.readLine().split("##");
             HashMap<String ,String> hashMap=new HashMap<String ,String>();
             hashMap.put("username",info[0]);
             hashMap.put("password",info[1]);
             br.close();
-            fis.close();
+          //  fis.close();
+            fileInputStream.close();
             return hashMap;
 
         }catch (Exception e){
